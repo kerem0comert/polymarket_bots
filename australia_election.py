@@ -16,8 +16,8 @@ driver: webdriver.Chrome = webdriver.Chrome(DRIVER_PATH)
 while 1:
     driver.get(URL)
     alp_val_element: WebElement = driver.find_element(by=By.XPATH, value=ALP_VAL_XPATH)
-    alp_val = alp_val_element.text.split('\n')[0]
-    msg = f'{datetime.now().time()} - ALP: {alp_val}'
+    alp_val: str = alp_val_element.text.split('\n')[0]
+    msg: str = f'{datetime.now().time()} - ALP: {alp_val}'
     print(msg)
     telegram_send.send(messages=[msg])
     sleep(SLEEP_AMOUNT)
